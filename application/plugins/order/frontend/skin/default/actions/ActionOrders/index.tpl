@@ -10,7 +10,7 @@
 {/block}
 
 {block 'layout_page_breadcrumb'}
-    <li class="breadcrumb-item active"><span class="breadcrumbs__current">{lang 'plugin.order.orders.breadcrumbs'}</span></li>
+    <li class="breadcrumb-item active"><span class="breadcrumbs__current">{lang 'plugin.order.breadcrumbs'}</span></li>
 {/block}
 
 {block 'layout_page_title'}

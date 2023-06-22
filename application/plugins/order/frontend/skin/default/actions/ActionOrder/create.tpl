@@ -6,9 +6,13 @@
 {/block}
 
 {block 'layout_page_breadcrumb'}
-    <li class="breadcrumb-item"><a href="{router page="order"}"
+    <li class="breadcrumb-item"><a href="{router page="orders"}"
                                    class="breadcrumbs__link">{lang 'plugin.order.breadcrumbs'}</a></li>
-    <li class="breadcrumb-item active"><span class="breadcrumbs__current">{$order->getTitle()}</span></li>
+    {if $order}
+        <li class="breadcrumb-item active"><span class="breadcrumbs__current">{$order->getTitle()}</span></li>
+    {else}
+        <li class="breadcrumb-item active"><span class="breadcrumbs__current"></span>{lang 'plugin.order.form_title_create'}</li>
+    {/if}
 {/block}
 
 {block 'layout_page_title' append}
