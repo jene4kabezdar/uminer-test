@@ -8,15 +8,6 @@
             <a href="{router page='/'}">{Config::Get('view.name')}</a>
         </h1>
 
-        {* Главное меню *}
-        {block 'nav_main'}
-            {insert name='block' block='menu' params=[ 
-                "name" => "main",
-                "activeItem" => $sMenuHeadItemSelect, 
-                "mods" => "main", 
-                "classes" => "ls-userbar-nav" ]}
-        {/block}
-
         {if $oUserCurrent}
             <div class="ls-userbar-notifications">
                 {hook run='userbar_notifications_items_before'}

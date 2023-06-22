@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2023-06-22 10:49:25
+<?php /* Smarty version Smarty-3.1.13, created on 2023-06-22 11:17:35
          compiled from "C:\xampp\htdocs\application\frontend\skin\synio\components\userbar\userbar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:21026507826493fd054a6484-40357103%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e71d761f48fcafe6722b2e361706e51c378a72bf' => 
     array (
       0 => 'C:\\xampp\\htdocs\\application\\frontend\\skin\\synio\\components\\userbar\\userbar.tpl',
-      1 => 1687101136,
+      1 => 1687421845,
       2 => 'file',
     ),
   ),
@@ -15,20 +15,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_6493fd0552dd91_41674189',
   'variables' => 
   array (
-    'sMenuHeadItemSelect' => 0,
     'oUserCurrent' => 0,
     'iUserCurrentCountTalkNew' => 0,
     'aLang' => 0,
     'items' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_6493fd0552dd91_41674189',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_6493fd0552dd91_41674189')) {function content_6493fd0552dd91_41674189($_smarty_tpl) {?><?php if (!is_callable('smarty_function_router')) include 'C:\\xampp\\htdocs\\framework/classes/modules/viewer/plugs\\function.router.php';
-if (!is_callable('smarty_insert_block')) include 'C:\\xampp\\htdocs\\framework/classes/modules/viewer/plugs\\insert.block.php';
 if (!is_callable('smarty_function_hook')) include 'C:\\xampp\\htdocs\\framework/classes/modules/viewer/plugs\\function.hook.php';
 if (!is_callable('smarty_function_lang')) include 'C:\\xampp\\htdocs\\framework/classes/modules/viewer/plugs\\function.lang.php';
 if (!is_callable('smarty_function_component')) include 'C:\\xampp\\htdocs\\framework/classes/modules/viewer/plugs\\function.component.php';
@@ -43,12 +41,6 @@ if (!is_callable('smarty_function_component')) include 'C:\\xampp\\htdocs\\frame
 "><?php echo Config::Get('view.name');?>
 </a>
         </h1>
-
-        
-        
-            <?php echo smarty_insert_block(array('block' => 'menu', 'params' => array("name"=>"main","activeItem"=>$_smarty_tpl->tpl_vars['sMenuHeadItemSelect']->value,"mods"=>"main","classes"=>"ls-userbar-nav")),$_smarty_tpl);?>
-
-        
 
         <?php if ($_smarty_tpl->tpl_vars['oUserCurrent']->value){?>
             <div class="ls-userbar-notifications">
