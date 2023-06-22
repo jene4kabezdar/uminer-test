@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2023-06-22 11:02:04
+<?php /* Smarty version Smarty-3.1.13, created on 2023-06-22 19:11:59
          compiled from "C:\xampp\htdocs\application\plugins\order\frontend\skin\default\actions\ActionOrders\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18839417026493fffc3ebcf9-80417996%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7791633d6d6c72493414dde628ca5269c2700ff7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\application\\plugins\\order\\frontend\\skin\\default\\actions\\ActionOrders\\index.tpl',
-      1 => 1687101136,
+      1 => 1687450317,
       2 => 'file',
     ),
     '44d8a82cbada80c9369bdba215a369b3ed10a3ee' => 
     array (
       0 => 'C:\\xampp\\htdocs\\application\\frontend\\skin\\synio\\layouts\\layout.base.tpl',
-      1 => 1687101136,
+      1 => 1687422529,
       2 => 'file',
     ),
     'ec1646154f70960f712afb94200ce68f0bfea5f9' => 
@@ -39,6 +39,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_6493fffc708bd3_94545047',
   'variables' => 
   array (
     'lang' => 0,
@@ -64,8 +66,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'sLayoutAfter' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_6493fffc708bd3_94545047',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_6493fffc708bd3_94545047')) {function content_6493fffc708bd3_94545047($_smarty_tpl) {?><?php if (!is_callable('smarty_function_component_define_params')) include 'C:\\xampp\\htdocs\\framework/classes/modules/viewer/plugs\\function.component_define_params.php';
 if (!is_callable('smarty_function_router')) include 'C:\\xampp\\htdocs\\framework/classes/modules/viewer/plugs\\function.router.php';
@@ -249,6 +249,10 @@ $_smarty_tpl->tpl_vars['sPath']->_loop = true;
 ; max-width: <?php echo Config::Get('view.grid.fluid_max_width');?>
 ;">
         <div class="layout-nav-inner ls-clearfix">
+            <?php if ($_smarty_tpl->tpl_vars['oUserCurrent']->value&&$_smarty_tpl->tpl_vars['oUserCurrent']->value->isAdministrator()){?>
+                <a href=<?php echo smarty_function_router(array('page'=>'order/add'),$_smarty_tpl);?>
+>Создать заказ</a>
+            <?php }?>
             <div class="layout-nav-right">
                 
                 <?php echo smarty_function_component(array('_default_short'=>'search.hideable'),$_smarty_tpl);?>
@@ -275,6 +279,10 @@ $_smarty_tpl->tpl_vars['sPath']->_loop = true;
     
     <div id="container" class="layout-container <?php echo smarty_function_hook(array('run'=>'layout_container_class','action'=>$_smarty_tpl->tpl_vars['sAction']->value),$_smarty_tpl);?>
  <?php if ($_smarty_tpl->tpl_vars['layoutShowSidebar']->value){?>layout-has-sidebar<?php }else{ ?>layout-no-sidebar<?php }?>">
+        
+    <li class="breadcrumb-item active"><span class="breadcrumbs__current"><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.breadcrumbs'),$_smarty_tpl);?>
+</span></li>
+
         
         <div class="layout-wrapper ls-clearfix <?php echo smarty_function_hook(array('run'=>'layout_wrapper_class','action'=>$_smarty_tpl->tpl_vars['sAction']->value),$_smarty_tpl);?>
 ">
@@ -354,52 +362,67 @@ $_smarty_tpl->tpl_vars['layoutNavItem']->_loop = true;
 
 
         <?php if ($_smarty_tpl->tpl_vars['orders']->value){?>
-
-            <table class="ls-table table-orders">
-                <thead>
-                    <tr>
-                        <th><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.table_head_id'),$_smarty_tpl);?>
+            <form data-action="update" class="js-form-order">
+                <table class="ls-table table-orders">
+                    <thead>
+                        <tr>
+                            <th><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.table_head_id'),$_smarty_tpl);?>
 </th>
-                        <th><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.table_head_title'),$_smarty_tpl);?>
+                            <th><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.table_head_title'),$_smarty_tpl);?>
 </th>
-                        <th><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.table_head_date_add'),$_smarty_tpl);?>
+                            <th><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.table_head_date_add'),$_smarty_tpl);?>
 </th>
-                        <th><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.table_head_action'),$_smarty_tpl);?>
+                            <th><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.table_head_action'),$_smarty_tpl);?>
 </th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-                <?php  $_smarty_tpl->tpl_vars['order'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['order']->_loop = false;
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <?php  $_smarty_tpl->tpl_vars['order'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['order']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['orders']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['order']->key => $_smarty_tpl->tpl_vars['order']->value){
 $_smarty_tpl->tpl_vars['order']->_loop = true;
 ?>
-                    <tr >
-                        <td>
-                            <a href="<?php echo $_smarty_tpl->tpl_vars['order']->value->getUrl();?>
+                        <tr >
+                            <td>
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['order']->value->getUrl();?>
 "><?php echo $_smarty_tpl->tpl_vars['order']->value->getId();?>
 </a>
-                        </td>
-                        <td>
-                            <a href="<?php echo $_smarty_tpl->tpl_vars['order']->value->getUrl();?>
+                            </td>
+                            <td>
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['order']->value->getUrl();?>
 "><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['order']->value->getTitle(), ENT_QUOTES, 'UTF-8', true);?>
 </a>
-                        </td>
-                        <td>
-                            <?php echo smarty_function_date_format(array('date'=>$_smarty_tpl->tpl_vars['order']->value->getDateCreate(),'hours_back'=>"12",'minutes_back'=>"60",'now'=>"60",'day'=>"day H:i",'format'=>"j F Y, H:i"),$_smarty_tpl);?>
+                            </td>
+                            <td>
+                                <?php echo smarty_function_date_format(array('date'=>$_smarty_tpl->tpl_vars['order']->value->getDateCreate(),'hours_back'=>"12",'minutes_back'=>"60",'now'=>"60",'day'=>"day H:i",'format'=>"j F Y, H:i"),$_smarty_tpl);?>
 
 
-                        </td>
-                        <td>
-                            <a href="<?php echo $_smarty_tpl->tpl_vars['order']->value->getUrlEdit();?>
+                            </td>
+                            <td>
+                                <a href="<?php echo $_smarty_tpl->tpl_vars['order']->value->getUrlEdit();?>
 " class="ls-button btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                            <a href="#" class="ls-button ls-button--danger btn btn-danger btn-sm js-order-list-item-delete" data-id="<?php echo $_smarty_tpl->tpl_vars['order']->value->getId();?>
+                                <a href="#" class="ls-button ls-button--danger btn btn-danger btn-sm js-order-list-item-delete" data-id="<?php echo $_smarty_tpl->tpl_vars['order']->value->getId();?>
 "><i class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </table>
-
+                                <form action="" method="post" enctype="multipart/form-data" class="syn-form-panel"
+                                      data-action="update">
+                                    <div style="margin: 5px 0">Статус: <?php echo $_smarty_tpl->tpl_vars['order']->value->getStatus() ? 'Обработан' : 'Новый';?>
+</div>
+                                    <div class="text-center">
+                                        <a href="#"
+                                           class="ls-button ls-button--primary js-form-order-submit"
+                                           data-id="<?php echo $_smarty_tpl->tpl_vars['order']->value->getId();?>
+"
+                                           data-active="<?php echo $_smarty_tpl->tpl_vars['order']->value->getStatus();?>
+"
+                                        >
+                                            Изменить</a>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </table>
+            </form>
             <?php echo smarty_function_component(array('_default_short'=>'pagination','total'=>+$_smarty_tpl->tpl_vars['paging']->value['iCountPage'],'current'=>+$_smarty_tpl->tpl_vars['paging']->value['iCurrentPage'],'url'=>((string)$_smarty_tpl->tpl_vars['paging']->value['sBaseUrl'])."/page__page__/".((string)$_smarty_tpl->tpl_vars['paging']->value['sGetParams']),'classes'=>'js-pagination-topics'),$_smarty_tpl);?>
 
 
@@ -411,7 +434,18 @@ $_smarty_tpl->tpl_vars['order']->_loop = true;
             </div>
 
         <?php }?>
-
+        <script>
+            document.querySelectorAll('.js-form-order-submit').forEach(btn => btn.addEventListener('click', () => {
+                const id = btn.getAttribute('data-id');
+                const active = Boolean(Number(btn.getAttribute('data-active')));
+                const idInput = '<input type="hidden" name="id" value="' + id + '">';
+                const activeInput = '<input type="hidden" name="active" value="' + active + '">';
+                document.querySelector('.js-form-order').insertAdjacentHTML('afterbegin', idInput);
+                if (!active) {
+                    document.querySelector('.js-form-order').insertAdjacentHTML('afterbegin', activeInput);
+                }
+            }));
+        </script>
 
 
 

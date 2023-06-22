@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2023-06-22 11:02:09
+<?php /* Smarty version Smarty-3.1.13, created on 2023-06-22 18:34:22
          compiled from "C:\xampp\htdocs\application\plugins\order\frontend\skin\default\actions\ActionOrder\order.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10329995606494000135c6e8-68547767%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0453c752d1bc74f9eab2e059442d0cac603485f7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\application\\plugins\\order\\frontend\\skin\\default\\actions\\ActionOrder\\order.tpl',
-      1 => 1687101136,
+      1 => 1687447850,
       2 => 'file',
     ),
     '44d8a82cbada80c9369bdba215a369b3ed10a3ee' => 
     array (
       0 => 'C:\\xampp\\htdocs\\application\\frontend\\skin\\synio\\layouts\\layout.base.tpl',
-      1 => 1687101136,
+      1 => 1687422529,
       2 => 'file',
     ),
     'ec1646154f70960f712afb94200ce68f0bfea5f9' => 
@@ -39,6 +39,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_649400015e2397_71987854',
   'variables' => 
   array (
     'lang' => 0,
@@ -64,8 +66,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'sLayoutAfter' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_649400015e2397_71987854',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_649400015e2397_71987854')) {function content_649400015e2397_71987854($_smarty_tpl) {?><?php if (!is_callable('smarty_function_component_define_params')) include 'C:\\xampp\\htdocs\\framework/classes/modules/viewer/plugs\\function.component_define_params.php';
 if (!is_callable('smarty_function_router')) include 'C:\\xampp\\htdocs\\framework/classes/modules/viewer/plugs\\function.router.php';
@@ -248,6 +248,10 @@ $_smarty_tpl->tpl_vars['sPath']->_loop = true;
 ; max-width: <?php echo Config::Get('view.grid.fluid_max_width');?>
 ;">
         <div class="layout-nav-inner ls-clearfix">
+            <?php if ($_smarty_tpl->tpl_vars['oUserCurrent']->value&&$_smarty_tpl->tpl_vars['oUserCurrent']->value->isAdministrator()){?>
+                <a href=<?php echo smarty_function_router(array('page'=>'order/add'),$_smarty_tpl);?>
+>Создать заказ</a>
+            <?php }?>
             <div class="layout-nav-right">
                 
                 <?php echo smarty_function_component(array('_default_short'=>'search.hideable'),$_smarty_tpl);?>
@@ -274,6 +278,14 @@ $_smarty_tpl->tpl_vars['sPath']->_loop = true;
     
     <div id="container" class="layout-container <?php echo smarty_function_hook(array('run'=>'layout_container_class','action'=>$_smarty_tpl->tpl_vars['sAction']->value),$_smarty_tpl);?>
  <?php if ($_smarty_tpl->tpl_vars['layoutShowSidebar']->value){?>layout-has-sidebar<?php }else{ ?>layout-no-sidebar<?php }?>">
+        
+    <li class="breadcrumb-item"><a href="<?php echo smarty_function_router(array('page'=>"orders"),$_smarty_tpl);?>
+"
+                                   class="breadcrumbs__link"><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.breadcrumbs'),$_smarty_tpl);?>
+</a></li>
+    <li class="breadcrumb-item active"><span class="breadcrumbs__current"><?php echo $_smarty_tpl->tpl_vars['order']->value->getTitle();?>
+</span></li>
+
         
         <div class="layout-wrapper ls-clearfix <?php echo smarty_function_hook(array('run'=>'layout_wrapper_class','action'=>$_smarty_tpl->tpl_vars['sAction']->value),$_smarty_tpl);?>
 ">
@@ -360,6 +372,29 @@ $_smarty_tpl->tpl_vars['layoutNavItem']->_loop = true;
 
         <div class="h3"><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.view_label_text'),$_smarty_tpl);?>
 </div>
+            <form action="" method="post" enctype="multipart/form-data" class="syn-form-panel js-form-order"
+                  data-action="update">
+                <input type="hidden" name="id" value="<?php echo $_smarty_tpl->tpl_vars['order']->value->getId();?>
+">
+                <div class="ls-field ls-field--checkbox  ls-clearfix form-check mb-3">
+                    <div class="ls-field-holder">
+                        <input type="checkbox" class="ls-field-input  form-check-input" name="active"
+                               id="order-active" <?php echo $_smarty_tpl->tpl_vars['order']->value->getStatus() ? 'checked' : '';?>
+>
+                    </div>
+                    <label class="ls-field-label form-check-label" for="order-active">
+                        <?php echo smarty_function_lang(array('_default_short'=>'plugin.order.label_active'),$_smarty_tpl);?>
+
+                    </label>
+                    <div class="ls-field-note js-ls-field-note"><small class="text-secondary"><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.note_active'),$_smarty_tpl);?>
+</small></div>
+                </div>
+                <div class="text-center">
+                    <a href="#"
+                       class="ls-button ls-button--primary js-form-order-submit"><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.button_submit'),$_smarty_tpl);?>
+</a>
+                </div>
+            </form>
         <div class="pluginator-view my-3">
             <?php echo $_smarty_tpl->tpl_vars['order']->value->getText();?>
 

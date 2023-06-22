@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2023-06-22 11:02:25
+<?php /* Smarty version Smarty-3.1.13, created on 2023-06-22 11:28:57
          compiled from "C:\xampp\htdocs\application\plugins\order\frontend\skin\default\actions\ActionOrder\create.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:192898802964940011573876-56161894%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '766772223268294dc2912d62385d9313e0712e44' => 
     array (
       0 => 'C:\\xampp\\htdocs\\application\\plugins\\order\\frontend\\skin\\default\\actions\\ActionOrder\\create.tpl',
-      1 => 1687101136,
+      1 => 1687422297,
       2 => 'file',
     ),
     '44d8a82cbada80c9369bdba215a369b3ed10a3ee' => 
     array (
       0 => 'C:\\xampp\\htdocs\\application\\frontend\\skin\\synio\\layouts\\layout.base.tpl',
-      1 => 1687101136,
+      1 => 1687422529,
       2 => 'file',
     ),
     'ec1646154f70960f712afb94200ce68f0bfea5f9' => 
@@ -39,6 +39,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_649400117b7d94_63169115',
   'variables' => 
   array (
     'lang' => 0,
@@ -64,8 +66,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'sLayoutAfter' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_649400117b7d94_63169115',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_649400117b7d94_63169115')) {function content_649400117b7d94_63169115($_smarty_tpl) {?><?php if (!is_callable('smarty_function_component_define_params')) include 'C:\\xampp\\htdocs\\framework/classes/modules/viewer/plugs\\function.component_define_params.php';
 if (!is_callable('smarty_function_router')) include 'C:\\xampp\\htdocs\\framework/classes/modules/viewer/plugs\\function.router.php';
@@ -248,6 +248,10 @@ $_smarty_tpl->tpl_vars['sPath']->_loop = true;
 ; max-width: <?php echo Config::Get('view.grid.fluid_max_width');?>
 ;">
         <div class="layout-nav-inner ls-clearfix">
+            <?php if ($_smarty_tpl->tpl_vars['oUserCurrent']->value&&$_smarty_tpl->tpl_vars['oUserCurrent']->value->isAdministrator()){?>
+                <a href=<?php echo smarty_function_router(array('page'=>'order/add'),$_smarty_tpl);?>
+>Создать заказ</a>
+            <?php }?>
             <div class="layout-nav-right">
                 
                 <?php echo smarty_function_component(array('_default_short'=>'search.hideable'),$_smarty_tpl);?>
@@ -274,6 +278,19 @@ $_smarty_tpl->tpl_vars['sPath']->_loop = true;
     
     <div id="container" class="layout-container <?php echo smarty_function_hook(array('run'=>'layout_container_class','action'=>$_smarty_tpl->tpl_vars['sAction']->value),$_smarty_tpl);?>
  <?php if ($_smarty_tpl->tpl_vars['layoutShowSidebar']->value){?>layout-has-sidebar<?php }else{ ?>layout-no-sidebar<?php }?>">
+        
+    <li class="breadcrumb-item"><a href="<?php echo smarty_function_router(array('page'=>"orders"),$_smarty_tpl);?>
+"
+                                   class="breadcrumbs__link"><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.breadcrumbs'),$_smarty_tpl);?>
+</a></li>
+    <?php if ($_smarty_tpl->tpl_vars['order']->value){?>
+        <li class="breadcrumb-item active"><span class="breadcrumbs__current"><?php echo $_smarty_tpl->tpl_vars['order']->value->getTitle();?>
+</span></li>
+    <?php }else{ ?>
+        <li class="breadcrumb-item active"><span class="breadcrumbs__current"></span><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.form_title_create'),$_smarty_tpl);?>
+</li>
+    <?php }?>
+
         
         <div class="layout-wrapper ls-clearfix <?php echo smarty_function_hook(array('run'=>'layout_wrapper_class','action'=>$_smarty_tpl->tpl_vars['sAction']->value),$_smarty_tpl);?>
 ">

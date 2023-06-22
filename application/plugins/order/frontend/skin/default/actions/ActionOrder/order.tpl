@@ -26,6 +26,24 @@
         {component 'actionbar' classes="order-actions" items=[[ 'buttons' => $items ]]}
 
         <div class="h3">{lang 'plugin.order.view_label_text'}</div>
+            <form action="" method="post" enctype="multipart/form-data" class="syn-form-panel js-form-order"
+                  data-action="update">
+                <input type="hidden" name="id" value="{$order->getId()}">
+                <div class="ls-field ls-field--checkbox  ls-clearfix form-check mb-3">
+                    <div class="ls-field-holder">
+                        <input type="checkbox" class="ls-field-input  form-check-input" name="active"
+                               id="order-active" {($order->getStatus()) ? 'checked':''}>
+                    </div>
+                    <label class="ls-field-label form-check-label" for="order-active">
+                        {lang 'plugin.order.label_active'}
+                    </label>
+                    <div class="ls-field-note js-ls-field-note"><small class="text-secondary">{lang 'plugin.order.note_active'}</small></div>
+                </div>
+                <div class="text-center">
+                    <a href="#"
+                       class="ls-button ls-button--primary js-form-order-submit">{lang 'plugin.order.button_submit'}</a>
+                </div>
+            </form>
         <div class="pluginator-view my-3">
             {$order->getText()}
         </div>
