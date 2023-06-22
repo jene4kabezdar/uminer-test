@@ -1,0 +1,171 @@
+[2023-06-22 10:49:17] db_error.CRITICAL 11204 e628fc9: SQL Error: Access denied for user 'test_user'@'localhost' (using password: YES) at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1045
+    [message] => Access denied for user 'test_user'@'localhost' (using password: YES)
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:49:45] db_error.CRITICAL 11204 fef9743: SQL Error: Access denied for user 'test_user'@'localhost' (using password: YES) at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1045
+    [message] => Access denied for user 'test_user'@'localhost' (using password: YES)
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:49:49] db_error.CRITICAL 11204 c542ac6: SQL Error: Access denied for user 'test_user'@'localhost' (using password: YES) at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1045
+    [message] => Access denied for user 'test_user'@'localhost' (using password: YES)
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:49:55] db_error.CRITICAL 11204 943029a: SQL Error: Access denied for user 'test_user'@'localhost' (using password: YES) at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1045
+    [message] => Access denied for user 'test_user'@'localhost' (using password: YES)
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:49:55] db_error.CRITICAL 11204 928b50d: SQL Error: Access denied for user 'test_user'@'localhost' (using password: YES) at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1045
+    [message] => Access denied for user 'test_user'@'localhost' (using password: YES)
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:49:59] db_error.CRITICAL 11204 eb56fac: SQL Error: Access denied for user 'test_user'@'localhost' (using password: YES) at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1045
+    [message] => Access denied for user 'test_user'@'localhost' (using password: YES)
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:50:00] db_error.CRITICAL 11204 fef8420: SQL Error: Access denied for user 'test_user'@'localhost' (using password: YES) at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1045
+    [message] => Access denied for user 'test_user'@'localhost' (using password: YES)
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:50:09] db_error.CRITICAL 11204 df54ad8: SQL Error: Access denied for user 'test_user'@'localhost' (using password: YES) at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1045
+    [message] => Access denied for user 'test_user'@'localhost' (using password: YES)
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:55:57] db_error.CRITICAL 11204 e78ae77: SQL Error: Access denied for user 'test_user'@'localhost' (using password: YES) at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1045
+    [message] => Access denied for user 'test_user'@'localhost' (using password: YES)
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:56:02] db_error.CRITICAL 11204 c4b03d4: SQL Error: Access denied for user 'test_user'@'localhost' (using password: YES) at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1045
+    [message] => Access denied for user 'test_user'@'localhost' (using password: YES)
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:59:34] db_error.CRITICAL 11204 59c12a9: SQL Error: Unknown database 'test_db' at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1049
+    [message] => Unknown database 'test_db'
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:59:36] db_error.CRITICAL 11204 8f2d8f0: SQL Error: Unknown database 'test_db' at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1049
+    [message] => Unknown database 'test_db'
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:59:36] db_error.CRITICAL 11204 dbc2781: SQL Error: Unknown database 'test_db' at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1049
+    [message] => Unknown database 'test_db'
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:59:38] db_error.CRITICAL 11204 e185443: SQL Error: Unknown database 'test_db' at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1049
+    [message] => Unknown database 'test_db'
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:59:46] db_error.CRITICAL 11204 811cb1e: SQL Error: Unknown database 'test_db' at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1049
+    [message] => Unknown database 'test_db'
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:59:52] db_error.CRITICAL 11204 5701d24: SQL Error: Unknown database 'test_db' at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1049
+    [message] => Unknown database 'test_db'
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 10:59:56] db_error.CRITICAL 11204 aa5f465: SQL Error: Unknown database 'test_db' at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1049
+    [message] => Unknown database 'test_db'
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 11:00:14] db_error.CRITICAL 11204 0ff9037: SQL Error: Unknown database 'test_db' at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1049
+    [message] => Unknown database 'test_db'
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
+[2023-06-22 11:00:24] db_error.CRITICAL 11204 3474b96: SQL Error: Unknown database 'test_db' at C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79<br>
+Array
+(
+    [code] => 1049
+    [message] => Unknown database 'test_db'
+    [query] => mysqli_connect()
+    [context] => C:\xampp\htdocs\framework\classes\modules\database\Database.class.php line 79
+)
+ []
