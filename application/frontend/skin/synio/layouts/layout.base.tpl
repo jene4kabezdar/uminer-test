@@ -63,6 +63,9 @@
      *}
     <nav class="layout-nav ls-clearfix" style="min-width: {Config::Get('view.grid.fluid_min_width')}; max-width: {Config::Get('view.grid.fluid_max_width')};">
         <div class="layout-nav-inner ls-clearfix">
+            {if $oUserCurrent && $oUserCurrent->isAdministrator()}
+                <a href={router page='order/add'}>Создать заказ</a>
+            {/if}
             <div class="layout-nav-right">
                 {* Поиск *}
                 {component 'search.hideable'}
