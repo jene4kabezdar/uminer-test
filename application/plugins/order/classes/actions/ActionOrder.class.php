@@ -41,7 +41,7 @@ class PluginOrder_ActionOrder extends ActionPlugin
         $this->AddEventPreg('/^ajax$/i', '/^create$/i', '/^$/i', 'AjaxCreate'); // ajax эвент для сохранения данных объекта заказ
         $this->AddEventPreg('/^ajax$/i', '/^update$/i', '/^$/i', 'AjaxUpdate'); // ajax эвент для обносления данных объекта заказ
         $this->AddEventPreg('/^ajax$/i', '/^remove$/i', '/^$/i', 'AjaxRemove'); // ajax эвент странцы удаления заказа из бд
-        $this->AddEventPreg('/^deletefile/i', '/^$/i', 'EventDeleteFile'); // эвент для вывода страницы добавления объекта Заказ
+        $this->AddEventPreg('/^deletefile/i', '/^$/i', 'EventDeleteFile'); // эвент для удаления файла
     }
 
     /**
@@ -202,16 +202,6 @@ class PluginOrder_ActionOrder extends ActionPlugin
          */
         $oOrder->setDateUpdate(date('Y-m-d H:i:s'));
 
-//        $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . getRequest('id') . '/';
-//        if (!is_dir($uploaddir)) {
-//            mkdir($uploaddir);
-//        }
-//
-//        $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
-//
-//        if (!file_exists($uploadfile)) {
-//            move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
-//        }
         self::uploadFile($oOrder);
 
         /**
