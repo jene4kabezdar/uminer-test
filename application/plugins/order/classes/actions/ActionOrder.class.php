@@ -41,6 +41,7 @@ class PluginOrder_ActionOrder extends ActionPlugin
         $this->AddEventPreg('/^ajax$/i', '/^create$/i', '/^$/i', 'AjaxCreate'); // ajax эвент для сохранения данных объекта заказ
         $this->AddEventPreg('/^ajax$/i', '/^update$/i', '/^$/i', 'AjaxUpdate'); // ajax эвент для обносления данных объекта заказ
         $this->AddEventPreg('/^ajax$/i', '/^remove$/i', '/^$/i', 'AjaxRemove'); // ajax эвент странцы удаления заказа из бд
+        $this->AddEventPreg('/^deletefile/i', '/^$/i', 'EventDeleteFile'); // эвент для вывода страницы добавления объекта Заказ
     }
 
     /**
@@ -89,6 +90,21 @@ class PluginOrder_ActionOrder extends ActionPlugin
 
     }
 
+    /**
+     * Удаляет файл
+     */
+    protected function EventDeleteFile()
+    {
+        $fileName = getRequestStr('filename');
+        $id = getRequestStr('id');
+        $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . $id . '/';
+        if (unlink($uploaddir . $fileName)) {
+            echo 'Файл удалён';
+        } else {
+            echo 'Ошибка удаления';
+        }
+    }
+
     protected function AjaxCreate()
     {
         /**
@@ -129,6 +145,11 @@ class PluginOrder_ActionOrder extends ActionPlugin
                  * выводит сообщение об успешном сохранении
                  */
                 $this->Message_AddNotice('Заказ создан', false, true);
+
+                /**
+                 * Загружает файл
+                 */
+                self::uploadFile($oOrder);
 
                 /**
                  * возвращает url для редиректа
@@ -180,6 +201,18 @@ class PluginOrder_ActionOrder extends ActionPlugin
          * Установка даты обновления
          */
         $oOrder->setDateUpdate(date('Y-m-d H:i:s'));
+
+//        $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . getRequest('id') . '/';
+//        if (!is_dir($uploaddir)) {
+//            mkdir($uploaddir);
+//        }
+//
+//        $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+//
+//        if (!file_exists($uploadfile)) {
+//            move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
+//        }
+        self::uploadFile($oOrder);
 
         /**
          * Валидация полей заказа
@@ -243,10 +276,20 @@ class PluginOrder_ActionOrder extends ActionPlugin
             return parent::EventNotFound();
         }
 
+        $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . $oOrder->getId() . '/';
+        $fileName = basename(glob($uploaddir . '*')[0]);
+        $fileExist = false;
+        if ($fileName) {
+            $uploadfile = $uploaddir . $fileName;
+            $fileExist = file_exists($uploadfile);
+        }
+
         /**
          * передает данные в шаблон
          */
         $this->Viewer_Assign('order', $oOrder);
+        $this->Viewer_Assign('fileExist', $fileExist);
+        $this->Viewer_Assign('fileName', $fileName);
 
         /**
          * объявляет шаблон для вывода
@@ -303,5 +346,20 @@ class PluginOrder_ActionOrder extends ActionPlugin
         $this->SetTemplateAction('order');
     }
 
+    private static function uploadFile($oOrder) {
+        if (!is_dir( $_SERVER['DOCUMENT_ROOT'] . '/uploads/')) {
+            mkdir( $_SERVER['DOCUMENT_ROOT'] . '/uploads/');
+        }
 
+        $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . $oOrder->getId() . '/';
+        if (!is_dir($uploaddir)) {
+            mkdir($uploaddir);
+        }
+
+        $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+
+        if (!file_exists($uploadfile)) {
+            move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
+        }
+    }
 }

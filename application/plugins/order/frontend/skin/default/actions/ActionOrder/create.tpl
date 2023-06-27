@@ -11,7 +11,8 @@
     {if $order}
         <li class="breadcrumb-item active"><span class="breadcrumbs__current">{$order->getTitle()}</span></li>
     {else}
-        <li class="breadcrumb-item active"><span class="breadcrumbs__current"></span>{lang 'plugin.order.form_title_create'}</li>
+        <li class="breadcrumb-item active"><span
+                    class="breadcrumbs__current"></span>{lang 'plugin.order.form_title_create'}</li>
     {/if}
 {/block}
 
@@ -44,17 +45,25 @@
 
             <div class="mb-3">
                 {component 'editor'
-                    name            = 'order[text_source]'
-                    value           = (( $order ) ? $order->getTextSource() : '')
-                    label           = {lang 'plugin.order.label_text'}
-                    note            = {lang 'plugin.order.note_text'}
-                    entityField     = 'text_source'
-                    entity          = 'PluginOrder_ModuleOrder_EntityOrder'
-                    classes         = 'order-field-text mb-3'
-                    inputClasses    = 'js-editor-default'
-                    mediaTargetType = 'topic'
-                    mediaTargetId   = ( $order ) ? $order->getId() : ''}
+                name            = 'order[text_source]'
+                value           = (( $order ) ? $order->getTextSource() : '')
+                label           = {lang 'plugin.order.label_text'}
+                note            = {lang 'plugin.order.note_text'}
+                entityField     = 'text_source'
+                entity          = 'PluginOrder_ModuleOrder_EntityOrder'
+                classes         = 'order-field-text mb-3'
+                inputClasses    = 'js-editor-default'
+                mediaTargetType = 'topic'
+                mediaTargetId   = ( $order ) ? $order->getId() : ''}
             </div>
+
+            {if $fileExist}
+                <p>Загружен файл <span>{$fileName}</span></p>
+                <a target="_blank" href="/order/deletefile?id={$order->getId()}&filename={$fileName}">Удалить</a>
+            {else}
+                <p>Файлы не загружены</p>
+                <input type="file" name="userfile">
+            {/if}
 
             <div class="ls-field ls-field--checkbox  ls-clearfix   form-check mb-3">
                 <div class="ls-field-holder">
@@ -64,7 +73,8 @@
                 <label class="ls-field-label form-check-label" for="order-active">
                     {lang 'plugin.order.label_active'}
                 </label>
-                <div class="ls-field-note js-ls-field-note"><small class="text-secondary">{lang 'plugin.order.note_active'}</small></div>
+                <div class="ls-field-note js-ls-field-note"><small
+                            class="text-secondary">{lang 'plugin.order.note_active'}</small></div>
             </div>
 
             <div class="text-center">
@@ -73,7 +83,5 @@
             </div>
 
         </form>
-
-
     </div>
 {/block}

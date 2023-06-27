@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2023-06-22 11:28:57
+<?php /* Smarty version Smarty-3.1.13, created on 2023-06-27 13:08:21
          compiled from "C:\xampp\htdocs\application\plugins\order\frontend\skin\default\actions\ActionOrder\create.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:192898802964940011573876-56161894%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '766772223268294dc2912d62385d9313e0712e44' => 
     array (
       0 => 'C:\\xampp\\htdocs\\application\\plugins\\order\\frontend\\skin\\default\\actions\\ActionOrder\\create.tpl',
-      1 => 1687422297,
+      1 => 1687860495,
       2 => 'file',
     ),
     '44d8a82cbada80c9369bdba215a369b3ed10a3ee' => 
     array (
       0 => 'C:\\xampp\\htdocs\\application\\frontend\\skin\\synio\\layouts\\layout.base.tpl',
-      1 => 1687422529,
+      1 => 1687452907,
       2 => 'file',
     ),
     'ec1646154f70960f712afb94200ce68f0bfea5f9' => 
@@ -287,7 +287,8 @@ $_smarty_tpl->tpl_vars['sPath']->_loop = true;
         <li class="breadcrumb-item active"><span class="breadcrumbs__current"><?php echo $_smarty_tpl->tpl_vars['order']->value->getTitle();?>
 </span></li>
     <?php }else{ ?>
-        <li class="breadcrumb-item active"><span class="breadcrumbs__current"></span><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.form_title_create'),$_smarty_tpl);?>
+        <li class="breadcrumb-item active"><span
+                    class="breadcrumbs__current"></span><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.form_title_create'),$_smarty_tpl);?>
 </li>
     <?php }?>
 
@@ -403,6 +404,17 @@ $_smarty_tpl->tpl_vars['layoutNavItem']->_loop = true;
 
             </div>
 
+            <?php if ($_smarty_tpl->tpl_vars['fileExist']->value){?>
+                <p>Загружен файл <span><?php echo $_smarty_tpl->tpl_vars['fileName']->value;?>
+</span></p>
+                <a target="_blank" href="/order/deletefile?id=<?php echo $_smarty_tpl->tpl_vars['order']->value->getId();?>
+&filename=<?php echo $_smarty_tpl->tpl_vars['fileName']->value;?>
+">Удалить</a>
+            <?php }else{ ?>
+                <p>Файлы не загружены</p>
+                <input type="file" name="userfile">
+            <?php }?>
+
             <div class="ls-field ls-field--checkbox  ls-clearfix   form-check mb-3">
                 <div class="ls-field-holder">
                     <input type="checkbox" class="ls-field-input  form-check-input" name="active"
@@ -413,7 +425,8 @@ $_smarty_tpl->tpl_vars['layoutNavItem']->_loop = true;
                     <?php echo smarty_function_lang(array('_default_short'=>'plugin.order.label_active'),$_smarty_tpl);?>
 
                 </label>
-                <div class="ls-field-note js-ls-field-note"><small class="text-secondary"><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.note_active'),$_smarty_tpl);?>
+                <div class="ls-field-note js-ls-field-note"><small
+                            class="text-secondary"><?php echo smarty_function_lang(array('_default_short'=>'plugin.order.note_active'),$_smarty_tpl);?>
 </small></div>
             </div>
 
@@ -424,8 +437,6 @@ $_smarty_tpl->tpl_vars['layoutNavItem']->_loop = true;
             </div>
 
         </form>
-
-
     </div>
 
 
